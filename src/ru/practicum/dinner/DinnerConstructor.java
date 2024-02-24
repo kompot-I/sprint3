@@ -37,7 +37,6 @@ public class DinnerConstructor {
                 String dish = list.get(random.nextInt(list.size()));
                 combo.add(dish);
             }
-
             combosSet.add(combo);
         }
 
@@ -45,6 +44,6 @@ public class DinnerConstructor {
     }
 
     boolean checkType(String type) {
-        return menu.containsKey(type) ? true : false;
+        return menu.containsKey(type);
     }
 }

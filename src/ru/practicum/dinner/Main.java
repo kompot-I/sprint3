@@ -23,9 +23,6 @@ public class Main {
                 case "2":
                     generateDishCombo();
                     break;
-                case "4":
-                    System.out.println(dc.menu);
-                    break;
                 case "3":
                     return;
             }
@@ -36,7 +33,6 @@ public class Main {
         System.out.println("Выберите команду:");
         System.out.println("1 - Добавить новое блюдо");
         System.out.println("2 - Сгенерировать комбинации блюд");
-        System.out.println("4");
         System.out.println("3 - Выход");
     }
 
@@ -73,7 +69,9 @@ public class Main {
 
         // сгенерируйте комбинации блюд и выведите на экран
         var combos = dc.generateDishCombo(numberOfCombos, typesDish);
+        int index = 1;
         for (ArrayList<String> combo : combos) {
+            System.out.println("Комбо " + index++);
             System.out.println(combo);
         }
     }

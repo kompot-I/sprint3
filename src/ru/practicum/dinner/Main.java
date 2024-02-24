@@ -1,5 +1,6 @@
 package ru.practicum.dinner;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -22,6 +23,9 @@ public class Main {
                 case "2":
                     generateDishCombo();
                     break;
+                case "4":
+                    System.out.println(dc.menu);
+                    break;
                 case "3":
                     return;
             }
@@ -32,6 +36,7 @@ public class Main {
         System.out.println("Выберите команду:");
         System.out.println("1 - Добавить новое блюдо");
         System.out.println("2 - Сгенерировать комбинации блюд");
+        System.out.println("4");
         System.out.println("3 - Выход");
     }
 
@@ -54,12 +59,22 @@ public class Main {
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();
 
+        ArrayList<String> typesDish = new ArrayList<>();
+
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-
+            if (dc.checkType(nextItem)) {
+                typesDish.add(nextItem);
+            } else {
+                System.out.println("Такого типа нет в меню. Введите другой тип пожалуйста.");
+            }
+            nextItem = scanner.nextLine();
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
-
+        var combos = dc.generateDishCombo(numberOfCombos, typesDish);
+        for (ArrayList<String> combo : combos) {
+            System.out.println(combo);
+        }
     }
 }

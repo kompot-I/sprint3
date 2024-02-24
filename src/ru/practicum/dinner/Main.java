@@ -37,11 +37,11 @@ public class Main {
 
     private static void addNewDish() {
         System.out.println("Введите тип блюда:");
-        String dishType = scanner.nextLine();
+        String dishType = scanner.nextLine().trim();
         System.out.println("Введите название блюда:");
-        String dishName = scanner.nextLine();
+        String dishName = scanner.nextLine().trim();
 
-        // добавьте новое блюдо
+        dc.addDishes(dishType, dishName);// добавьте новое блюдо
     }
 
     private static void generateDishCombo() {
